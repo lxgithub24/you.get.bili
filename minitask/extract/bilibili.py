@@ -65,7 +65,7 @@ def extract():
                     'pic': pic,
                     'mov':j
                 }
-                video_dict = get_video.download(video_dict,j)
+                # video_dict = get_video.download(video_dict,j)//download after write mysql done!
                 mysql_model.crawler_into_db(video_dict)
                 j = j + 1
     return video_dict
