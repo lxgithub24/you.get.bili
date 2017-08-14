@@ -16,11 +16,11 @@ def extract():
             rcontent = '<li class="video matrix ">(.*?)</li>'
             lists = re.findall(rcontent, response, re.S)
             video_dict = {}
-            i = 0
+            # i = 0
             for list in lists:
-                i += 1
-                if i == 3:
-                    return False
+                # i += 1
+                # if i == 3:
+                #     return False
                 rsite_src = '<a href="//(.*?)"  target="_blank"'
                 site_src = re.findall(rsite_src, list, re.S)[0].strip().replace('amp;','')
                 rdescription = '<a class="title"  title="(.*?)" href="'
@@ -65,7 +65,7 @@ def extract():
                     'pic': pic,
                     'mov':j
                 }
-                # video_dict = get_video.download(video_dict,j)//download after write mysql done!
+                video_dict = get_video.download(video_dict,j)#download after write mysql done!
                 mysql_model.crawler_into_db(video_dict)
                 j = j + 1
     return video_dict

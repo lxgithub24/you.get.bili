@@ -61,3 +61,7 @@ class Video_info(BaseModel):
         session.flush()
         session.commit()
         return record
+
+    @classmethod
+    def query(cls,mov):
+        return session.query(Video_info).filter_by(mov=mov).all()
